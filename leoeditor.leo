@@ -98,6 +98,7 @@ vertical: body pane on the botton</t>
 <t tx="leo.20210509071037.1">'''Recursively import all python files in a directory and clean the result.'''
 
 c.recursiveImport(
+    # raw string
     dir_ = r'./',
     kind = '@clean', # The new best practice.
     safe_at_file = False,
