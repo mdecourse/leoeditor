@@ -137,7 +137,22 @@ img.add_border {
     <div id="tipue_search_content">Reference << <a href='Reference.html'>Previous</a> <a href='Scripts.html'>Next</a> >> Scripts<br /><h1>Source codes</h1>
 <p><a href="https://github.com/leo-editor/leo-editor">https://github.com/leo-editor/leo-editor</a></p>
 <p>Leo Editor 6.4 development for Windows: <a href="./../downloads/leo64.7z">leo64.7z</a> (下載 7.4MB 解開後約 36 MB)</p>
-<br />Reference << <a href='Reference.html'>Previous</a> <a href='Scripts.html'>Next</a> >> Scripts</div>
+<p>Leo Editor 6.4 原始碼位於 <a href="https://github.com/mdecourse/leoeditor/tree/main/downloads/leo_sources">downloads/leo_sources</a>:</p>
+<p style="padding-left: 30px;">總計有 607 個 Python 檔案, 解讀為 21672 節點.</p>
+<p>當安裝 Leo Editor 後可以透過 import leo; leo.run(); 開啟 Leo Editor.</p>
+<p>這裡可以透過 Leo Editor 的原始碼學習 Python Programming.</p>
+<p>而 run() 的內容:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def run(*args,**keys):
+    import pdb ; pdb = pdb.set_trace
+    import leo.core.runLeo as runLeo
+    runLeo.run(*args,**keys)</pre>
+<p>因此透過以下程式碼, 也可以啟動 Leo Editor:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import pdb;pdb = pdb.set_trace
+import leo.core.runLeo as runLeo
+runLeo.run()</pre>
+<p>其中的 pdb is for debug: <a href="https://leoeditor.com/debuggers.html">https://leoeditor.com/debuggers.html</a></p>
+<p>Leo Editor 原始碼中的 sentinels 標註可以充作修改時間的註記, 讓 viewer 了解該程式修改的時間點.</p>
+<p>由於 leo.core.runLeo 中 runLeo.py 將 from leo.core import leoGlobals as g, 因此後續 Leo Editor 開啟後, 所謂的 g 就是 leo.core.leoGlobals</p><br />Reference << <a href='Reference.html'>Previous</a> <a href='Scripts.html'>Next</a> >> Scripts</div>
         
     <!-- footer -->
       <div class="container">

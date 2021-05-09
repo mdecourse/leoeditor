@@ -95,13 +95,14 @@ QLineEdit#editorLabel {
 }</t>
 <t tx="leo.20210509071022.3">horizontal: body pane to the left
 vertical: body pane on the botton</t>
-<t tx="leo.20210509071037.1">'''Recursively import all python files in a directory and clean the result.'''
+<t tx="leo.20210509071037.1">@language python
+'''Recursively import all python files in a directory and clean the result.'''
 
 c.recursiveImport(
     # raw string
-    dir_ = r'./',
+    dir_ = r'./downloads/leo_sources',
     kind = '@clean', # The new best practice.
-    safe_at_file = False,
+    safe_at_file = True,
     theTypes = ['.py'] # Same as ['.py']
 )</t>
 <t tx="leo.20210509072326.1"></t>

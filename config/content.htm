@@ -1,12 +1,25 @@
 <h1>About</h1>
 <p>Leo Editor 導引網站的目的在試圖了解並運用其中穩定的功能.</p>
+<h4>Leo Editor 簡介:</h4>
+<p style="padding-left: 30px;"><a href="https://www.leoeditor.com/preface.html">https://www.leoeditor.com/preface.html</a></p>
+<p style="padding-left: 30px;">是一套全功能 IDE 與大綱管理套件</p>
+<p style="padding-left: 30px;">使用 Python 編寫, 適合用來研究電腦程式碼</p>
+<p style="padding-left: 30px;">p.b 就是所選節點的 body text, Scripts have full access to all of Leo’s sources.</p>
+<p style="padding-left: 30px;">Clones create multiple views of an outline.<br/>Leo’s underlying data is a <a href="https://en.wikipedia.org/wiki/Directed_acyclic_graph">Directed Acyclic Graphs</a>.<br/>@test and @suite scripts create unit tests automatically.</p>
+<p style="padding-left: 30px;"><a href="https://www.leoeditor.com/appendices.html#the-leonine-way-to-refactor-code">https://www.leoeditor.com/appendices.html#the-leonine-way-to-refactor-code</a></p>
+<p style="padding-left: 30px;">@button scripts apply scripts to outline data.</p>
+<p style="padding-left: 30px;">The execute-script command pre-defines three names: c, g, and p. c is the commander of the outline in which the script executes. g is the leo.core.leoGlobals module, containing dozens of useful functions and classes. p is the position of the presently selected node.</p>
+<p style="padding-left: 30px;">c - commander of the outline</p>
+<p style="padding-left: 30px;">g - leo.core.leoGlobals</p>
+<p style="padding-left: 30px;">p - position of the presently selected node</p>
+<p style="padding-left: 30px;"><a href="https://www.leoeditor.com/scripting-miscellany.html#id30">https://www.leoeditor.com/scripting-miscellany.html#id30</a></p>
+<p style="padding-left: 30px;"><a href="https://www.leoeditor.com/scripting-miscellany.html#id33">https://www.leoeditor.com/scripting-miscellany.html#id33</a></p>
 <h4>官方網站:</h4>
 <p style="padding-left: 30px;"><a href="https://www.leoeditor.com/">https://www.leoeditor.com/</a></p>
 <h4>Google Group:</h4>
 <p style="padding-left: 30px;"><a href="https://groups.google.com/g/leo-editor?pli=1">https://groups.google.com/g/leo-editor?pli=1</a></p>
 <h4>功能蒐羅:</h4>
-<p style="padding-left: 30px;"><a href="https://github.com/mdecourse/leoeditor/discussions/1">https://github.com/mdecourse/leoeditor/discussions/1</a></p>
-<h2>Reference</h2>
+<p style="padding-left: 30px;"><a href="https://github.com/mdecourse/leoeditor/discussions/1">https://github.com/mdecourse/leoeditor/discussions/1</a></p><h2>Reference</h2>
 <p><a href="https://mde.tw/lab/blog/how-to-use-leo-editor.html">https://mde.tw/lab/blog/how-to-use-leo-editor.html</a></p>
 <p><a href="http://project.mde.tw/blog/tag/leo-editor.html">http://project.mde.tw/blog/tag/leo-editor.html</a></p>
 <p><a href="http://chiamingyen.github.io/kmolsite/blog/leo-editor-jiao-xue-yi.html">http://chiamingyen.github.io/kmolsite/blog/leo-editor-jiao-xue-yi.html</a></p>
@@ -15,7 +28,22 @@
 <p></p><h1>Source codes</h1>
 <p><a href="https://github.com/leo-editor/leo-editor">https://github.com/leo-editor/leo-editor</a></p>
 <p>Leo Editor 6.4 development for Windows: <a href="/downloads/leo64.7z">leo64.7z</a> (下載 7.4MB 解開後約 36 MB)</p>
-<h1>Scripts</h1>
+<p>Leo Editor 6.4 原始碼位於 <a href="https://github.com/mdecourse/leoeditor/tree/main/downloads/leo_sources">downloads/leo_sources</a>:</p>
+<p style="padding-left: 30px;">總計有 607 個 Python 檔案, 解讀為 21672 節點.</p>
+<p>當安裝 Leo Editor 後可以透過 import leo; leo.run(); 開啟 Leo Editor.</p>
+<p>這裡可以透過 Leo Editor 的原始碼學習 Python Programming.</p>
+<p>而 run() 的內容:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def run(*args,**keys):
+    import pdb ; pdb = pdb.set_trace
+    import leo.core.runLeo as runLeo
+    runLeo.run(*args,**keys)</pre>
+<p>因此透過以下程式碼, 也可以啟動 Leo Editor:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import pdb;pdb = pdb.set_trace
+import leo.core.runLeo as runLeo
+runLeo.run()</pre>
+<p>其中的 pdb is for debug: <a href="https://leoeditor.com/debuggers.html">https://leoeditor.com/debuggers.html</a></p>
+<p>Leo Editor 原始碼中的 sentinels 標註可以充作修改時間的註記, 讓 viewer 了解該程式修改的時間點.</p>
+<p>由於 leo.core.runLeo 中 runLeo.py 將 from leo.core import leoGlobals as g, 因此後續 Leo Editor 開啟後, 所謂的 g 就是 leo.core.leoGlobals</p><h1>Scripts</h1>
 <p>Recursive Import:</p>
 <p>c 為 Leo Editor 系統中的 <a href="https://leoeditor.com/cheatsheet.html#id18">command class</a></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">'''Recursively import all python files in a directory and clean the result.'''
@@ -40,7 +68,17 @@ import leo.core.runLeo
 leo.core.runLeo.run()</pre>
 <h2>At commands</h2>
 <p>在 Leo Editor 這些以 @ 開頭的節點與內文指令稱為 directives (指令)</p>
-<p><a href="https://www.leoeditor.com/directives.html">https://www.leoeditor.com/directives.html</a></p><h3>@file</h3>
+<p><a href="https://www.leoeditor.com/directives.html">https://www.leoeditor.com/directives.html</a></p>
+<pre>                         Sections &amp;   File data in
+@&lt;file&gt; kind  Sentinels?  @others?    .leo file?    Notes
+------------  ---------- -----------  ------------  -----
+@asis            no         no           yes
+@auto            no         yes          no         1, 2
+@auto-xx         no         yes          no         1, 2
+@clean           no         yes          yes
+@edit            no         no           no
+@file            yes        yes          no
+@nosent          no         yes          yes</pre><h3>@file</h3>
 <p><a href="https://www.leoeditor.com/directives.html#part-1-file-directives">https://www.leoeditor.com/directives.html#part-1-file-directives</a> </p>
 <h3>@edit</h3>
 <p>採用單階模式編輯檔案</p><h3>@clean</h3>
