@@ -123,7 +123,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li class='has-children'><a href='About.html'>About</a><ul class='dropdown'><li><a href='Reference.html'>Reference</a></li></ul><li><a href='Source codes.html'>Source codes</a><li class='has-children'><a href='Scripts.html'>Scripts</a><ul class='dropdown'><li class='has-children'><a href='At commands.html'>At commands</a><ul class='dropdown'><li><a href='@file.html'>@file</a><li><a href='@edit.html'>@edit</a><li><a href='@clean.html'>@clean</a><li><a href='@auto.html'>@auto</a><li><a href='@path.html'>@path</a><li><a href='@data.html'>@data</a></li></li></ul></ul><li><a href='Notes.html'>Notes</a></li>
+                     <li class='has-children'><a href='About.html'>About</a><ul class='dropdown'><li><a href='Reference.html'>Reference</a></li></ul><li><a href='Application.html'>Application</a><li class='has-children'><a href='Source codes.html'>Source codes</a><ul class='dropdown'><li><a href='es.html'>es</a></li></ul><li class='has-children'><a href='Scripts.html'>Scripts</a><ul class='dropdown'><li class='has-children'><a href='At commands.html'>At commands</a><ul class='dropdown'><li><a href='@file.html'>@file</a><li><a href='@edit.html'>@edit</a><li><a href='@clean.html'>@clean</a><li><a href='@auto.html'>@auto</a><li><a href='@path.html'>@path</a><li><a href='@data.html'>@data</a></li></ul><li><a href='Plugins.html'>Plugins</a><li><a href='Qt Windows.html'>Qt Windows</a><li><a href='Misc.html'>Misc</a></li></ul><li><a href='Notes.html'>Notes</a></li>
                       </ul>
                 </nav>
               </div>
@@ -134,7 +134,7 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">Reference << <a href='Reference.html'>Previous</a> <a href='Scripts.html'>Next</a> >> Scripts<br /><h1>Source codes</h1>
+    <div id="tipue_search_content">Application << <a href='Application.html'>Previous</a> <a href='es.html'>Next</a> >> es<br /><h1>Source codes</h1>
 <p><a href="https://github.com/leo-editor/leo-editor">https://github.com/leo-editor/leo-editor</a></p>
 <p>Leo Editor 6.4 development for Windows: <a href="./../downloads/leo64.7z">leo64.7z</a> (下載 7.4MB 解開後約 36 MB)</p>
 <p>Leo Editor 6.4 原始碼位於 <a href="https://github.com/mdecourse/leoeditor/tree/main/downloads/leo_sources">downloads/leo_sources</a>:</p>
@@ -152,7 +152,11 @@ import leo.core.runLeo as runLeo
 runLeo.run()</pre>
 <p>其中的 pdb is for debug: <a href="https://leoeditor.com/debuggers.html">https://leoeditor.com/debuggers.html</a></p>
 <p>Leo Editor 原始碼中的 sentinels 標註可以充作修改時間的註記, 讓 viewer 了解該程式修改的時間點.</p>
-<p>由於 leo.core.runLeo 中 runLeo.py 將 from leo.core import leoGlobals as g, 因此後續 Leo Editor 開啟後, 所謂的 g 就是 leo.core.leoGlobals</p><br />Reference << <a href='Reference.html'>Previous</a> <a href='Scripts.html'>Next</a> >> Scripts</div>
+<p>由於 leo.core.runLeo 中 runLeo.py 將 from leo.core import leoGlobals as g, 因此後續 Leo Editor 開啟後, 所謂的 g 就是 leo.core.leoGlobals</p>
+<hr/>
+<p>從 <a href="https://github.com/mdecourse/leoeditor/blob/main/downloads/leo_sources/core/leoApp.py">https://github.com/mdecourse/leoeditor/blob/main/downloads/leo_sources/core/leoApp.py</a> 就不難看出 Leo Editor 的複雜度.</p>
+<p>leoGui.py: <a href="https://github.com/mdecourse/leoeditor/blob/main/downloads/leo_sources/core/leoGui.py">https://github.com/mdecourse/leoeditor/blob/main/downloads/leo_sources/core/leoGui.py</a> 則定義基本的 Leo Editor 圖形界面.</p>
+<p>Leo Editor 可同時支援 PyQt4 與 PyQt5 的設計: <a href="https://github.com/mdecourse/leoeditor/blob/main/downloads/leo_sources/core/leoQt.py">https://github.com/mdecourse/leoeditor/blob/main/downloads/leo_sources/core/leoQt.py</a></p><br />Application << <a href='Application.html'>Previous</a> <a href='es.html'>Next</a> >> es</div>
         
     <!-- footer -->
       <div class="container">

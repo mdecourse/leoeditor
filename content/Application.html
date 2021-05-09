@@ -2,7 +2,7 @@
         <head>
         <title>Leo Editor Tutorial Site</title>
         <meta charset="utf-8">
-<meta property="head" content="H3">
+<meta property="head" content="H1">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
@@ -134,8 +134,98 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">@file << <a href='@file.html'>Previous</a> <a href='@clean.html'>Next</a> >> @clean<br /><h1>@edit</h1>
-<p>採用單階模式編輯檔案</p><br />@file << <a href='@file.html'>Previous</a> <a href='@clean.html'>Next</a> >> @clean</div>
+    <div id="tipue_search_content">Reference << <a href='Reference.html'>Previous</a> <a href='Source codes.html'>Next</a> >> Source codes<br /><h1>Application</h1>
+<h4>如何使用 Leo Editor</h4>
+<p>理論上透過 pip install leo 就可以安裝 Leo Editor, 但是在 Windows, Mac 與 Ubuntu 安裝後的版本經常不一致, 導致許多用法上莫衷一是, 這裡將要針對這三套操作系統的 Leo Editor 應用加以介紹.</p>
+<p>首先是在 Windows 10 操作系統中安裝 Leo Editor:</p>
+<h4>系統安裝版</h4>
+<p>當使用者從 <a href="https://www.python.org/downloads/windows/">https://www.python.org/downloads/windows/</a> 下載安裝 Python 3.9.5 時, Windows 10 會出現下列畫面, 表示 Windows 10 其實是希望使用者透過操作系統的 APP 模式安裝 Python. 因此以下自行安裝的 Python 3.9.5 後, 操作系統並不會將必要的 Python 執行路徑納入環境變數, 使用者必須自行設定.</p>
+<p><img alt="" height="468" src="./../images/win_dont_allow_install_python.png" width="500"/></p>
+<p><img caption="false" height="308" src="./../images/python-3.9.5-amd64_install1.png" width="500"/></p>
+<p>直接在系統上安裝 Python 後, Python 3.9.5 位於 C:\Users\kmol2020\AppData\Local\Programs\Python\Python39\python.exe, 只不過並不在系統的環境變數 path 命令搜尋路徑中.</p>
+<p>在系統中安裝 Python3.9.5 後, 利用 C:\Users\kmol2020\AppData\Local\Programs\Python\Python39\scripts\pip.exe list 查詢目前所安裝的模組之前, 必須先將操作系統的代理主機設定關閉後才可正確查詢, 結果為:</p>
+<p>Package    Version<br/>---------- -------<br/>pip        21.1.1<br/>setuptools 56.0.0</p>
+<p>接下來若要利用此一 Python 安裝 Leo Editor, 由於需要在系統目錄中寫入, 因此所啟動的 cmd 必須以管理者身分啟動, 指令為:</p>
+<p>C:\Users\kmol2020\AppData\Local\Programs\Python\Python39\python.exe -m pip install leo</p>
+<p>為了執行方便, 可以將 C:\Users\kmol2020\AppData\Local\Programs\Python\Python39\ 納入操作系統的命令搜尋路中中.</p>
+<p>請注意: C:\Users\kmol2020\AppData\Local\Programs\Python\Python39\scripts\pip.exe install leo 命令遭到 Windows 10 版本 2004 拒絕執行, 必須採用 python.exe -m pip install leo 才行.</p>
+<p>Leo Editor 安裝完成後, 利用 C:\Users\kmol2020\AppData\Local\Programs\Python\Python39\scripts\leo.exe 即可開啟. 但是針對啟動時採中文模式時, 將無法順利輸入英文 string 而無法開啟 Leo Editor. 這時就必須執行 leo.exe 之前, 先將中文模式轉為英文模式之後, 再執行 leo.exe, 否則無法建立起動 Leo Editor 必要的 .leoID.txt 檔案.</p>
+<p>此一 .leoID.txt 位於 C:\Users\用戶名稱\.leo 目錄下. 且這時所安裝的 Leo Editor 版本為 6.3 版. 啟動時的畫面如下:</p>
+<p><img alt="" height="387" src="./../images/leo_editor_start_up.png" width="500"/></p>
+<p>當上述以 python.exe -m pip install leo 之後, 除了 Leo Editor 之外, 其實也同時安裝了以下模組:</p>
+<p>C:\WINDOWS\system32&gt;C:\Users\kmol2020\AppData\Local\Programs\Python\Python39\python.exe -m pip list<br/>Package                       Version<br/>----------------------------- ---------<br/>alabaster                     0.7.12<br/>appdirs                       1.4.4<br/>astroid                       2.5.6<br/>asttokens                     2.0.5<br/>attrs                         21.2.0<br/>Babel                         2.9.1<br/>black                         21.5b0<br/>certifi                       2020.12.5<br/>chardet                       4.0.0<br/>click                         7.1.2<br/>colorama                      0.4.4<br/>dialite                       0.5.3<br/>docutils                      0.17.1<br/>flexx                         0.8.1<br/>idna                          2.10<br/>imagesize                     1.2.0<br/>ipython-genutils              0.2.0<br/>isort                         5.8.0<br/>Jinja2                        2.11.3<br/>jsonschema                    3.2.0<br/>jupyter-core                  4.7.1<br/>lazy-object-proxy             1.6.0<br/>MarkupSafe                    1.1.1<br/>mccabe                        0.6.1<br/>meta                          1.0.2<br/>mypy-extensions               0.4.3<br/>nbformat                      5.1.3<br/>packaging                     20.9<br/>pathspec                      0.8.1<br/>pip                           21.1.1<br/>pscript                       0.7.5<br/>pyflakes                      2.3.1<br/>Pygments                      2.9.0<br/>pylint                        2.8.2<br/>pyparsing                     2.4.7<br/>PyQt5                         5.15.4<br/>PyQt5-Qt5                     5.15.2<br/>PyQt5-sip                     12.8.1<br/>PyQtWebEngine                 5.15.4<br/>PyQtWebEngine-Qt5             5.15.2<br/>pyrsistent                    0.17.3<br/>pyshortcuts                   1.8.0<br/>pytz                          2021.1<br/>pywin32                       300<br/>regex                         2021.4.4<br/>requests                      2.25.1<br/>setuptools                    56.0.0<br/>six                           1.16.0<br/>snowballstemmer               2.1.0<br/>Sphinx                        4.0.0<br/>sphinxcontrib-applehelp       1.0.2<br/>sphinxcontrib-devhelp         1.0.2<br/>sphinxcontrib-htmlhelp        1.0.3<br/>sphinxcontrib-jsmath          1.0.1<br/>sphinxcontrib-qthelp          1.0.3<br/>sphinxcontrib-serializinghtml 1.1.4<br/>toml                          0.10.2<br/>tornado                       6.1<br/>traitlets                     5.0.5<br/>urllib3                       1.26.4<br/>webruntime                    0.5.8<br/>windows-curses                2.2.0<br/>wrapt                         1.12.1</p>
+<h4>建立可攜版本</h4>
+<p>由於上述操作系統安裝 Python 3.9.5 的過程並不在 Windows 10 2004 版本 (2020.04 釋出的版本) 系統的規劃中, 因此採用可攜化安裝的方式, 其可控性較高, 且透過隨身碟方式執行, 可以在不同電腦中保有統一的個人設定, 因此比較建議採用可攜版本安裝 Python 3.9.5.</p>
+<p>在 Windows 10 建立可攜 Python 3.9.5 執行環境的工具是 <a href="https://github.com/Bioruebe/UniExtract2">https://github.com/Bioruebe/UniExtract2</a>, 可以解開 python-3.9.5-amd64.exe, 第一階段將分別解開為: core.msi, dev.msi, doc.msi, exe.msi, lib.msi, tcltk.msi 與 tools.msi, 第二階段再將這些 .msi 解開到同一目錄, 即取得可攜系統 Python39 目錄的內容.</p>
+<p>可攜系統的目錄中分別帶有 data 目錄與 start.bat 及 stop.bat 等啟動與關閉檔案.</p>
+<p style="padding-left: 30px;">data</p>
+<p style="padding-left: 30px;">start.bat</p>
+<p style="padding-left: 30px;">stop.bat</p>
+<p>而 data 目錄中則有以下目錄:</p>
+<p style="padding-left: 30px;">python39</p>
+<p style="padding-left: 30px;">portablegit</p>
+<p style="padding-left: 30px;">PUTTY</p>
+<p style="padding-left: 30px;">tcc</p>
+<p style="padding-left: 30px;">wscite</p>
+<p style="padding-left: 30px;">home</p>
+<p style="padding-left: 30px;">tmp</p>
+<h4>start.bat 檔案內容:</h4>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">@echo off
+set Disk=y
+subst %Disk%: "data"
+
+%Disk%:
+
+set HomePath=%Disk%:\home
+set HomeDrive=%Disk%:\home
+set Home=%Disk%:\home
+set USERPROFILE=%Disk%:\home
+
+REM 將系統 Python 程式的 io 設為 utf-8
+set PYTHONIOENCODING="utf-8"
+
+set PYTHONPATH=%Disk%:\Python39\DLLs;%Disk%:\Python39\Lib;%Disk%:\Python39\Lib\site-packages;
+set PYTHONHOME=%Disk%:\Python39
+
+REM for putty
+set GIT_SSH=%Disk%:\putty\plink.exe
+
+REM 設定跟 Python 有關的命令搜尋路徑
+set path_python=%Disk%:\Python39;%Disk%:\Python39\Scripts;
+REM 設定跟Git 有關的命令搜尋路徑
+set path_git=%Disk%:\portablegit\bin;
+
+set path_tcc=%Disk%:\tmp\tcc\win32;
+
+path=%Disk%:;%path_python%;%path_git%;%path%;
+
+start /MIN cmd.exe
+start /MIN cmd.exe
+start /MIN cmd.exe
+start /MIN cmd.exe
+
+start /MIN %Disk%:\wScite\SciTE.exe
+start /MIN %Disk%:\wScite\SciTE.exe
+
+Exit
+</pre>
+<h4>stop.bat 檔案內容:</h4>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">@echo off
+set Disk=y
+path=%PATH%;
+
+taskkill /IM python.exe /F
+taskkill /IM pythonw.exe /F
+taskkill /IM scite.exe /F
+
+REM 終止虛擬硬碟與目錄的對應
+subst %Disk%: /D
+REM 關閉 cmd 指令視窗
+taskkill /IM cmd.exe /F
+
+EXIT</pre>
+<p>根據以上步驟所完成的可攜 Python 3.9.5 + Leo Editor 的系統: <a href="https://drive.google.com/file/d/1HXvoDhquboNbLhZ0b-dRTSVoRF-rrMk4/view?usp=sharing">portable_py395.7z</a> (under python At mde)</p>
+<p></p><br />Reference << <a href='Reference.html'>Previous</a> <a href='Source codes.html'>Next</a> >> Source codes</div>
         
     <!-- footer -->
       <div class="container">

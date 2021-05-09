@@ -2,7 +2,7 @@
         <head>
         <title>Leo Editor Tutorial Site</title>
         <meta charset="utf-8">
-<meta property="head" content="H3">
+<meta property="head" content="H2">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
@@ -134,8 +134,58 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">@file << <a href='@file.html'>Previous</a> <a href='@clean.html'>Next</a> >> @clean<br /><h1>@edit</h1>
-<p>採用單階模式編輯檔案</p><br />@file << <a href='@file.html'>Previous</a> <a href='@clean.html'>Next</a> >> @clean</div>
+    <div id="tipue_search_content">Source codes << <a href='Source codes.html'>Previous</a> <a href='Scripts.html'>Next</a> >> Scripts<br /><h1>es</h1>
+<p>es 代表 echo string, 可以將執行結果顯示在 Log pane 中.</p>
+<p>g.es() 函式定義位於 <a href="https://raw.githubusercontent.com/mdecourse/leoeditor/main/downloads/leo_sources/core/leoGlobals.py">https://raw.githubusercontent.com/mdecourse/leoeditor/main/downloads/leo_sources/core/leoGlobals.py</a> 中, 原始碼如下:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def es(*args, **keys):
+    """Put all non-keyword args to the log pane.
+    The first, third, fifth, etc. arg translated by g.translateString.
+    Supports color, comma, newline, spaces and tabName keyword arguments.
+    """
+    if not app or app.killed:
+        return
+    if app.gui and app.gui.consoleOnly:
+        return
+    log = app.log
+    # Compute the effective args.
+    d = {
+        'color': None,
+        'commas': False,
+        'newline': True,
+        'spaces': True,
+        'tabName': 'Log',
+        'nodeLink': None,
+    }
+    d = g.doKeywordArgs(keys, d)
+    color = d.get('color')
+    if color == 'suppress':
+        return  # New in 4.3.
+    color = g.actualColor(color)
+    tabName = d.get('tabName') or 'Log'
+    newline = d.get('newline')
+    s = g.translateArgs(args, d)
+    # Do not call g.es, g.es_print, g.pr or g.trace here!
+        # sys.__stdout__.write('\n===== g.es: %r\n' % s)
+    if app.batchMode:
+        if app.log:
+            app.log.put(s)
+    elif g.unitTesting:
+        if log and not log.isNull:
+            # This makes the output of unit tests match the output of scripts.
+            g.pr(s, newline=newline)
+    elif log and app.logInited:
+        if newline:
+            s += '\n'
+        log.put(s, color=color, tabName=tabName, nodeLink=d['nodeLink'])
+        # Count the number of *trailing* newlines.
+        for ch in s:
+            if ch == '\n': log.newlines += 1
+            else: log.newlines = 0
+    else:
+        app.logWaiting.append((s, color, newline, d),)
+
+log = es</pre>
+<p></p><br />Source codes << <a href='Source codes.html'>Previous</a> <a href='Scripts.html'>Next</a> >> Scripts</div>
         
     <!-- footer -->
       <div class="container">
